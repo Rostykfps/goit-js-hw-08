@@ -32,6 +32,12 @@ function checkingStorageData() {
 // Очищення форми під час сабміту, а також вивід в косоль обєкту з їхніми поточними значеннями
 function handleSubmit(event) {
   event.preventDefault();
+
+  if (!(feedbackForm.email.value && feedbackForm.message.value)) {
+    alert('Please, fill all fields');
+    return;
+  }
+
   console.log(formData);
   feedbackForm.reset();
   localStorage.removeItem(STORAGE_KEY);
